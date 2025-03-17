@@ -1,0 +1,45 @@
+{{< layout}}
+
+{{$content}}
+<div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h3 class="card-title">Lista de Usuarios</h3>
+        <a href="/usuarios/registro" class="btn btn-primary">Nuevo Usuario</a>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Tipo</th>
+                        <th>Identificador Específico</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#usuarios}}
+                    <tr>
+                        <td>{{id}}</td>
+                        <td>{{nombre}}</td>
+                        <td>{{email}}</td>
+                        <td>{{tipoUsuario}}</td>
+                        <td>
+                            {{#isUsuarioNormal}}
+                            {{numeroSocio}}
+                            {{/isUsuarioNormal}}
+                            {{#isAdministrador}}
+                            {{identificadorEmpleado}}
+                            {{/isAdministrador}}
+                        </td>
+                    </tr>
+                    {{/usuarios}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{{/content}}
+
+{{/layout}} 
